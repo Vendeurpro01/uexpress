@@ -1,17 +1,25 @@
 {
+  "id": "./",
   "name": "U-Express — La vitesse en toute confiance",
   "short_name": "U-Express",
-  "description": "Livraison à Ouagadougou : commandez, suivez votre colis, devenez livreur.",
+  "description": "Livraison rapide : commandez sans compte, suivez votre colis en direct, devenez livreur U-Express.",
   "lang": "fr",
+  "dir": "ltr",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#0f1d57",
+  "categories": ["business", "shopping", "lifestyle"],
+  "prefer_related_applications": false,
   "icons": [
     { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
     { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Suivre un colis", "short_name": "Suivre", "url": "./#/suivi", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Espace livreur", "short_name": "Livreur", "url": "./#/livreur", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
   ]
 }

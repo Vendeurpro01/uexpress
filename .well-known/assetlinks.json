@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ursholding.uexpress",
+      "sha256_cert_fingerprints": [
+        "1C:7A:9C:AD:0A:B5:8B:48:EA:80:F1:AB:C0:DA:E0:C3:29:BE:B6:58:CA:70:13:B9:F7:20:30:0A:DE:7B:8F:F6"
+      ]
+    }
+  }
+]
