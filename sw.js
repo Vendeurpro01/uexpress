@@ -1,7 +1,7 @@
 // Service worker U-Express : rend l'application installable et utilisable
 // avec un réseau faible. Les pages sont servies depuis le réseau d'abord,
 // puis depuis le cache si la connexion tombe.
-const CACHE = 'u-express-v2';
+const CACHE = 'u-express-v3';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -19,9 +19,13 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   const req = event.request;
-  if (req.method !== 'GET' || new URL(req.url).origin !== self.location.origin) return;
+  const url = new URL(req.url);
+  if (req.method !== 'GET' || url.origin !== self.location.origin) return;
+  if (url.pathname.endsWith('/version.json')) return; // toujours la version en ligne, jamais le cache
+  // Les pages (index.html) sont toujours redemandées au site : la dernière version s'affiche dès qu'elle est en ligne.
+  const page = req.mode === 'navigate' || url.pathname.endsWith('/') || url.pathname.endsWith('/index.html');
   event.respondWith(
-    fetch(req)
+    (page ? fetch(req.url, { cache: 'no-cache', credentials: 'same-origin' }) : fetch(req)) // (une requête « navigate » ne se recopie pas)
       .then((res) => {
         const copy = res.clone();
         caches.open(CACHE).then((cache) => cache.put(req, copy)).catch(() => {});
