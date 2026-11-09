@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>U-Express · Envoyez votre position au livreur</title>
+    <meta name="description" content="Touchez pour montrer au livreur U-Express où vous êtes. Aucune inscription, aucun paiement." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="U-Express" />
+    <meta property="og:title" content="📍 Votre livreur U-Express arrive" />
+    <meta property="og:description" content="Touchez pour lui montrer où vous êtes. Aucune inscription, aucun paiement." />
+    <meta property="og:url" content="https://u-express.urs-holding.com/p/" />
+    <meta property="og:image" content="https://u-express.urs-holding.com/og-position.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="U-Express : votre livreur arrive, touchez le lien pour lui montrer où vous êtes." />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0f1d57" />
+    <link rel="icon" type="image/png" href="../icons/icon-192.png" />
+    <style>
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #0f1d57; color: #fff; font-family: system-ui, sans-serif; text-align: center; }
+      a { color: #fff; }
+    </style>
+    <script>
+      // Lien court : …/p/#<clé><r|l> → la page de l'application qui envoie la position.
+      (function () {
+        var code = location.hash.slice(1);
+        location.replace('../' + (code ? '#/p/' + encodeURIComponent(code) : ''));
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Ouverture d’U-Express… <a href="../">Continuer</a></p>
+  </body>
+</html>
